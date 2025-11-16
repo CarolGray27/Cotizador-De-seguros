@@ -1,0 +1,722 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('../assets/logo.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 150px;
+    background-attachment: fixed;
+}
+
+.header {
+    background-color: #1ebea4c0;
+    color: white;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+    padding-bottom: 50px;
+}
+
+/*Formulario*/
+.cotizador-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.campo {
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.campo select,
+.campo input[type="text"],
+.campo input[type="number"],
+.campo input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    appearance: none;
+    font-size: 1rem;
+}
+
+.campo input[type="number"]:focus,
+.campo input[type="text"]:focus,
+.campo input[type="tel"]:focus,
+.campo select:focus {
+    outline: none;
+    border-color: #1A5B54;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.coberturas-radio {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.coberturas-radio label {
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.coberturas-radio input[type="radio"] {
+    margin-right: 5px;
+}
+
+.btn-cotizar {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.btn-cotizar:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+/* Resultado de cotización */
+.resultado {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.resultado.oculto {
+    display: none;
+}
+
+.cotizacion-card {
+    max-width: 100%;
+}
+
+.cotizacion-header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.cotizacion-header h2 {
+    color: #1A5B54;
+    margin: 0 0 10px 0;
+    font-size: 1.8rem;
+}
+
+.numero-cotizacion {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.cobertura-info {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.cobertura-info p {
+    margin: 0;
+    color: #333;
+    font-size: 1rem;
+}
+
+.precios-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.precio-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.precio-card:hover {
+    transform: translateY(-5px);
+}
+
+.precio-card:nth-child(2) {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.precio-card h3 {
+    margin: 0 0 15px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.precio-grande {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 10px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.precio-descripcion {
+    font-size: 0.9rem;
+    margin-top: 10px;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.botones-accion {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 25px;
+    align-items: center;
+}
+
+.btn-accion {
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    display: block;
+    width: 100%;
+    max-width: 300px;
+}
+
+.btn-llamar {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-llamar:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+.btn-comprar {
+    background-color: #1A5B54;
+    color: white;
+}
+
+.btn-comprar:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.btn-te-llamamos {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.btn-te-llamamos:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 193, 7, 0.3);
+}
+
+/* Estadísticas */
+.estadisticas {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.estadisticas.oculto {
+    display: none;
+}
+
+.estadisticas h2 {
+    color: #1A5B54;
+    margin-top: 0;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    border-left: 4px solid #1A5B54;
+}
+
+.stat-card h3 {
+    color: #333;
+    font-size: 1rem;
+    margin: 0 0 15px 0;
+    font-weight: 600;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1A5B54;
+    margin: 0;
+}
+
+/* Modal */
+.modal {
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.oculto {
+    display: none;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    line-height: 20px;
+}
+
+.close-modal:hover {
+    color: #000;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #1A5B54;
+}
+
+/* Clase para ocultar elementos */
+.oculto {
+    display: none !important;
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(135deg, #5bd1a5 0%, #026873 100%);
+    width: 100%;
+    padding: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-logo {
+    height: 40px;
+    width: auto;
+}
+
+.navbar-name {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+.navbar-menu li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.navbar-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Home Page */
+.home-hero {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+}
+
+.home-hero h1 {
+    color: #026873;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.hero-subtitle {
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.btn-hero {
+    display: inline-block;
+    max-width: 300px;
+    text-decoration: none;
+}
+
+.home-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.feature-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.feature-card h3 {
+    color: #026873;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Contacto Page */
+.contacto-header {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.contacto-header h1 {
+    color: #026873;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.contacto-subtitle {
+    color: #666;
+    font-size: 1.2rem;
+}
+
+.contacto-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.contacto-info-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.contacto-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.contacto-item i {
+    color: #026873;
+    font-size: 1.5rem;
+    width: 30px;
+    text-align: center;
+}
+
+.mapa-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.mapa-container iframe {
+    border-radius: 5px;
+}
+
+/* Coberturas Page */
+.coberturas-header {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.coberturas-header h1 {
+    color: #026873;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.coberturas-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.coberturas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.cobertura-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cobertura-card h2 {
+    color: #026873;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.cobertura-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cobertura-lista li {
+    padding: 12px 0;
+    padding-left: 30px;
+    position: relative;
+    color: #333;
+    line-height: 1.6;
+}
+
+.cobertura-lista li::before {
+    content: "●";
+    position: absolute;
+    left: 0;
+    color: #5bd1a5;
+    font-size: 1.2rem;
+}
+
+.coberturas-cta {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.btn-cotizar-ahora {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+}
+
+.btn-cotizar-ahora:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(220, 53, 69, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        max-width: 100%;
+    }
+
+    .cotizador-form {
+        padding: 20px;
+    }
+
+    .precios-container {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .precio-grande {
+        font-size: 1.5rem;
+    }
+
+    .botones-accion {
+        gap: 10px;
+    }
+
+    .navbar-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .navbar-menu {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .navbar-menu li {
+        width: 100%;
+    }
+
+    .navbar-menu li a {
+        display: block;
+        text-align: center;
+    }
+
+    .home-hero h1 {
+        font-size: 2rem;
+    }
+
+    .coberturas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contacto-info-card {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .header p {
+        font-size: 0.9rem;
+    }
+
+    .cotizacion-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .precio-grande {
+        font-size: 1.3rem;
+    }
+
+    .navbar-name {
+        font-size: 1.2rem;
+    }
+
+    .home-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .contacto-header h1,
+    .coberturas-header h1 {
+        font-size: 2rem;
+    }
+
+    .cobertura-card h2 {
+        font-size: 1.5rem;
+    }
+}

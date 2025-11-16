@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIENKA SEGUROS - Cotizador de Seguros</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="icon" href="assets/logo2.ico" type="image/x-icon">
+    <!-- PapaParse para leer CSV -->
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <img src="assets/logo1.png" alt="Logo Pienka Seguros" class="navbar-logo">
+                <span class="navbar-name">Pienka Seguros</span>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="index.html">Inicio / Cotización</a></li>
+                <li><a href="coberturas.html">Coberturas</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="header">
+        <h1>Cotizador de Seguros de Auto</h1>
+        <p>Selecciona las características de tu vehículo para obtener una cotización.</p>
+    </header>
+
+    <div class="container">
+        <form id="formulario-cotizar" class="cotizador-form">
+            <div class="campo">
+                <label for="marca">Marca del Auto:</label>
+                <select id="marca" required>
+                    <option value="" disabled selected>-- Selecciona --</option>
+                    <option value="europe">Europea (Ej: BMW, Audi, Volkswagen)</option>
+                    <option value="usa">Americana (Ej: Ford, Chevrolet, Dodge)</option>
+                    <option value="japan">Asiática (Ej: Toyota, Honda, Datsun)</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="anio">Año del Auto:</label>
+                <select id="anio" required>
+                    <option value="" disabled selected>-- Selecciona --</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="origen">Origen:</label>
+                <select id="origen" required>
+                    <option value="" disabled selected>-- Selecciona --</option>
+                    <option value="europe">Europea</option>
+                    <option value="usa">Americana</option>
+                    <option value="japan">Asiática</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="edad">Edad del Conductor:</label>
+                <input type="number" id="edad" min="18" max="100" required placeholder="Ingresa tu edad">
+            </div>
+
+            <div class="campo">
+                <label for="cobertura">Tipo de Cobertura:</label>
+                <select id="cobertura" required>
+                    <option value="" disabled selected>-- Selecciona --</option>
+                    <option value="clasica">Cobertura 100 Clásica</option>
+                    <option value="plus">Cobertura 100 Plus</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-cotizar">Calcular Cotización</button>
+
+        </form>
+
+        <div id="resultado" class="resultado oculto">
+            <!-- El contenido se generará dinámicamente con JavaScript -->
+        </div>
+
+        <div id="estadisticas" class="estadisticas oculto">
+            <h2>Estadísticas de Accidentes</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Promedio de Accidentes Fatales por Edad</h3>
+                    <p id="promedio-fatal" class="stat-value">-</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Índice de Fatalidad según la Edad</h3>
+                    <p id="porcentaje-leves" class="stat-value">-</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal para "Te llamamos" -->
+    <div id="modal-llamada" class="modal oculto">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Te Llamamos</h2>
+            <form id="form-llamada">
+                <div class="campo">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" required>
+                </div>
+                <div class="campo">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" required>
+                </div>
+                <button type="submit" class="btn-cotizar">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="JS/app.js"></script>
+</body>
+</html>
+
